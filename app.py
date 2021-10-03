@@ -108,8 +108,8 @@ HTTP status: {response_clockin.status_code}
 
 message = MIMEText(result, 'plain', 'utf-8')
 message['Subject'] = 'YQT打卡结果'
-message['FROM'] = MAIL_USERNAME
-message['To'] = MAIL_USERNAME
+message['FROM'] = EMAIL_USERNAME
+message['To'] = EMAIL_USERNAME
 
 server = smtplib.SMTP(EMAIL_SERVER)
 server.connect(EMAIL_SERVER, EMAIL_PORT)
