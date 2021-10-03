@@ -19,6 +19,8 @@ with open('./info.json', 'r') as f:
 s = requests.Session()
 response = s.get(URL_SESSION)
 session = response.history[0].headers['Set-Cookie'].split(';')[0]
+cookie = 'id=' + core['id'] + '; token=' + core['token'] + '; ' + session
+print(cookie)
 
 # Part2 Get header & data
 HEADER = {
@@ -28,7 +30,7 @@ HEADER = {
     'Connection': 'keep-alive',
     'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
     'Host': 'bjut.sanyth.com:81',
-    'Cookie': session + '; id=' + core['id'] + '; token=' + core['token'],
+    'Cookie': cookie,
     "Origin": "http://bjut.sanyth.com:81",
 
     'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_4_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko)  Mobile/15E148 wxwork/3.1.18 MicroMessenger/7.0.1 Language/zh ColorScheme/Dark'
