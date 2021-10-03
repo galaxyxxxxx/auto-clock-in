@@ -3,13 +3,12 @@ name: 'Auto Clock-In Bot'
 on:
   schedule:
     # set the trigger time at 5:00 a.m
-    - cron: "0 1 * * *" 
+    - cron: "0 1 *" 
 
 jobs:
   bot:
     runs-on: ubuntu-latest
     steps:
-      - name: 'Checkout codes'
       - uses: actions/checkout@v2
 
       - name: 'Set up Python 3.9'
@@ -24,3 +23,8 @@ jobs:
 
       - name: 'Run the script'
         run: Python app.py
+        env:
+          EMAIL_USERNAME: ${{secrets.EMAIL_USERNAME}}
+          EMAIL_PASSWORD: ${{secrets.EMAIL_PASSWORD}}
+          EMAIL_SERVER: ${{secrets.EMAIL_SERVER}}
+          EMAIL_PORT: ${{secrets.EMAIL_PORT}}

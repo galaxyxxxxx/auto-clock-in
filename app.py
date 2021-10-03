@@ -5,6 +5,7 @@
 '''
 # -*- coding: utf-8 -*-
 import requests
+import requests
 import json
 import urllib.parse
 
@@ -82,10 +83,22 @@ DATA = prefix_raw + suffix_raw
 # Part3 Clock in
 response_clockin = requests.post(url=URL_CLOCKIN, headers=HEADER, data=DATA)
 
+result = '打卡失败'
 if response_clockin.text == 'success':
-    print('成功打卡')
+    result = '成功打卡'
 else:
     if response_clockin.text == 'Applied today':
-        print('今天已经打过卡')
+        result = '今天已经打过卡'
     else:
-        print('打卡失败')
+        result += f'''
+        HTTP status: {response_clockin.text}, 
+        '''
+
+
+from email.mime.text import MIMEText
+import smtplib
+server = smtplib.SMTP(SMTP_SERVER, SMTP_SERVER_PORT)
+server.login(EMAIL_USERNAME, EMAIL_PASSWORD)
+server.sendmail(EMAIL_USERNAME, [EMAIL_USERNAME], msg.as_string())
+msg = MIMEText('hello, send by Python...', 'plain', 'utf-8')
+server.quit()
