@@ -1,13 +1,18 @@
 name: 'Auto Clock-In Bot'
 
 on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
   schedule:
     # set the trigger time at 5:00 a.m
-    - cron: "0 1 *" 
+    - cron: "0 1 * * *" 
 
 jobs:
   bot:
     runs-on: ubuntu-latest
+    
     steps:
       - uses: actions/checkout@v2
 
