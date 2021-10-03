@@ -23,7 +23,7 @@ A auto clock-in script based on python3 for BJUTer.
       >
       >  - If your mobile device is on iOS, I'm willing to recommend the `Stream` App which is free & concise :)
 
-3. Run 
+3. Run the script
     ```shell
     python3 app.py
     ```

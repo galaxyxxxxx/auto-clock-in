@@ -12,7 +12,7 @@ URL_SESSION = 'http://bjut.sanyth.com:81/nonlogin/qywx/authentication.htm?appId=
 URL_CLOCKIN = 'http://bjut.sanyth.com:81/syt/zzapply/operation.htm'
 
 # Part0 Read user info
-with open('./x.json', 'r') as f:
+with open('./info.json', 'r') as f:
     core = json.load(f)
 
 # Part1 Get session
