@@ -6,6 +6,12 @@ It could clock in at 9:00 a.m everyday.
 
 > The script is inspired by [tsosunchia](https://github.com/tsosunchia/bjut_autosignin)
 
+## What can I do ?
+
+- [x] Clock in at 9:00 a.m everyday
+- [x] Send the email after clocking in
+- [ ] Get `id` & `token` without network protocol analyzer
+
 ## Usage
 
 1. Fork the project 
@@ -13,7 +19,7 @@ It could clock in at 9:00 a.m everyday.
 2. Update your information
 
     - Open `info.json` and complete it with your own information
-  
+    
     - The `id` & `token` are easy to get through any network protocol analyzer
 
 
