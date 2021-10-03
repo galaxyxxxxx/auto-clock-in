@@ -23,7 +23,8 @@ A auto clock-in script based on python3 for BJUTer.
       >
       >  - If your mobile device is on iOS, I'm willing to recommend the `Stream` App which is free & concise :)
 
-3. Email Settings
+3. [option] Email Settings
+    > You can escape this step in branch [no-email](https://github.com/galaxyxxxxx/auto-clock-in/tree/no-email)
 
     Open the settings in your forking repository, add the following info to your secrets.
 
