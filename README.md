@@ -2,6 +2,8 @@
 
 A auto clock-in script based on python3 for BJUTer.
 
+It could clock in at 9:00 a.m everyday.
+
 > The script is inspired by [tsosunchia](https://github.com/tsosunchia/bjut_autosignin)
 
 ## Usage
@@ -35,10 +37,11 @@ A auto clock-in script based on python3 for BJUTer.
     EMAIL_PORT
     ```
 
-4. Run the script
-    ```shell
-    python3 app.py
-    ```
+## Test
+Run the script
+```shell
+python3 app.py
+```
 
 ## Example
 
