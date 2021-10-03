@@ -28,8 +28,3 @@ jobs:
 
       - name: 'Run the script'
         run: python3 app.py
-        env:
-          EMAIL_USERNAME: ${{secrets.EMAIL_USERNAME}}
-          EMAIL_PASSWORD: ${{secrets.EMAIL_PASSWORD}}
-          EMAIL_SERVER: ${{secrets.EMAIL_SERVER}}
-          EMAIL_PORT: ${{secrets.EMAIL_PORT}}

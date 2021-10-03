@@ -7,14 +7,6 @@
 import requests
 import json
 import urllib.parse
-import smtplib
-from os import environ
-from email.mime.text import MIMEText
-
-EMAIL_USERNAME = environ['EMAIL_USERNAME']
-EMAIL_PASSWORD = environ['EMAIL_PASSWORD']
-EMAIL_SERVER = environ['EMAIL_SERVER']
-EMAIL_PORT = int(environ['EMAIL_PORT'])
 
 URL_SESSION = 'http://bjut.sanyth.com:81/nonlogin/qywx/authentication.htm?appId=402880c97b1aa5f7017b1ad2bd97001b&urlb64=L3dlaXhpbi9zYW55dGgvaG9tZS5odG1s'
 URL_CLOCKIN = 'http://bjut.sanyth.com:81/syt/zzapply/operation.htm'
@@ -97,18 +89,5 @@ if response_clockin.text == 'success':
 else:
     if response_clockin.text == 'Applied today':
         result = '今天已经打过卡'
-    else:
-        result += f'''
-HTTP status: {response_clockin.status_code}
-打卡数据:
-{
-    json.dumps(info, ensure_ascii=False, sort_keys=True, indent=2)
-}
-'''
 
-message = MIMEText(result, 'plain', 'utf-8')
-
-server = smtplib.SMTP(EMAIL_SERVER)
-server.connect(EMAIL_SERVER, EMAIL_PORT)
-server.login(EMAIL_USERNAME, EMAIL_PASSWORD)
-server.sendmail(EMAIL_USERNAME, [EMAIL_USERNAME], message.as_string())
+print(result)
