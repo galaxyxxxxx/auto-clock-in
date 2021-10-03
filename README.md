@@ -6,7 +6,7 @@ A auto clock-in script based on python3 for BJUTer.
 
 ## Usage
 
-1. Clone the project 
+1. Fork the project 
 
 2. Update your information
 
@@ -23,7 +23,18 @@ A auto clock-in script based on python3 for BJUTer.
       >
       >  - If your mobile device is on iOS, I'm willing to recommend the `Stream` App which is free & concise :)
 
-3. Run the script
+3. Email Settings
+
+    Open the settings in your forking repository, add the following info to your secrets.
+
+    ```
+    EMAIL_USERNAME 
+    EMAIL_PASSWORD 
+    EMAIL_SERVER
+    EMAIL_PORT
+    ```
+
+4. Run the script
     ```shell
     python3 app.py
     ```
