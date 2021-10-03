@@ -2,6 +2,8 @@
 
 A auto clock-in script based on python3 for BJUTer.
 
+It could clock in at 9:00 a.m everyday.
+
 > The script is inspired by [tsosunchia](https://github.com/tsosunchia/bjut_autosignin)
 
 ## Usage
@@ -23,21 +25,11 @@ A auto clock-in script based on python3 for BJUTer.
       >
       >  - If your mobile device is on iOS, I'm willing to recommend the `Stream` App which is free & concise :)
 
-3. Email Settings
-
-    Open the settings in your forking repository, add the following info to your secrets.
-
-    ```
-    EMAIL_USERNAME 
-    EMAIL_PASSWORD 
-    EMAIL_SERVER
-    EMAIL_PORT
-    ```
-
-4. Run the script
-    ```shell
-    python3 app.py
-    ```
+## Test
+Run the script
+```shell
+python3 app.py
+```
 
 ## Example
 
