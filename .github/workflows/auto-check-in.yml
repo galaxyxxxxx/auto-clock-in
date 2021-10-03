@@ -27,7 +27,7 @@ jobs:
           pip install requests
 
       - name: 'Run the script'
-        run: Python app.py
+        run: python3 app.py
         env:
           EMAIL_USERNAME: ${{secrets.EMAIL_USERNAME}}
           EMAIL_PASSWORD: ${{secrets.EMAIL_PASSWORD}}
