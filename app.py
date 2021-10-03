@@ -107,7 +107,8 @@ HTTP status: {response_clockin.status_code}
 '''
 
 message = MIMEText(result, 'plain', 'utf-8')
-server = smtplib.SMTP_SSL(EMAIL_SERVER)
+
+server = smtplib.SMTP(EMAIL_SERVER)
 server.connect(EMAIL_SERVER, EMAIL_PORT)
 server.login(EMAIL_USERNAME, EMAIL_PASSWORD)
 server.sendmail(EMAIL_USERNAME, [EMAIL_USERNAME], msg.as_string())
