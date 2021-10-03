@@ -1,0 +1,27 @@
+name: 'Auto Clock-In Bot'
+
+on:
+  schedule:
+    branches:
+      # set the trigger time at 5:00 a.m
+      - cron: '0 1 * * 1-7' 
+
+jobs:
+  bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout codes'
+      - uses: actions/checkout@v2
+
+      - name: 'Run clock in script'
+        uses: actions/setup-python@v2
+        with: 
+          python-version: 3.9
+          
+      - name: 'Install dependence'
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: 'Run'
+        run: Python app.py
