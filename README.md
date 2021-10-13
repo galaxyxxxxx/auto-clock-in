@@ -10,7 +10,6 @@ It could clock in at 9:00 a.m everyday.
 
 - [x] Clock in at 9:00 a.m everyday
 - [x] Send the email after clocking in
-- [ ] Get `id` & `token` without network protocol analyzer
 
 ## Usage
 
@@ -25,9 +24,7 @@ It could clock in at 9:00 a.m everyday.
 
       > ⚠️NOTICE
       >
-      >  - The **id & token** are valid for merely **one week**. 
-      >
-      >  - That means you have to update the script manually once a week.
+      >  - Once **id & token** are invalid, you have to update the script manually once a week.
       >
       >  - If your mobile device is on iOS, I'm willing to recommend the `Stream` App which is free & concise :)
 
