@@ -1,6 +1,7 @@
 name: 'Auto Clock-In Bot'
 
 on:
+  workflow_dispatch:
   push:
     branches: [main]
   pull_request:
@@ -35,3 +36,4 @@ jobs:
           EMAIL_PASSWORD: ${{secrets.EMAIL_PASSWORD}}
           EMAIL_SERVER: ${{secrets.EMAIL_SERVER}}
           EMAIL_PORT: ${{secrets.EMAIL_PORT}}
+          DATA: ${{secrets.DATA}}

@@ -15,29 +15,17 @@ It could clock in at 9:00 a.m everyday.
 
 1. Fork the project 
 
-2. Update your information
-
-    - Open `info.json` and complete it with your own information
-    
-    - The `id` & `token` are easy to get through any network protocol analyzer
-
-
-      > ⚠️NOTICE
-      >
-      >  - Once **id & token** are invalid, you have to update the script manually once a week.
-      >
-      >  - If your mobile device is on iOS, I'm willing to recommend the `Stream` App which is free & concise :)
-
-3. [option] Email Settings
-    > You can escape this step in branch [no-email](https://github.com/galaxyxxxxx/auto-clock-in/tree/no-email)
-
+2. Settings
     Open the settings in your forking repository, add the following info to your secrets.
 
     ```
     EMAIL_USERNAME 
+    EMAIL_FROM # usually equal to EMAIL_USERNAME
+    EMAIL_TO # usually equal to EMAIL_USERNAME
     EMAIL_PASSWORD 
     EMAIL_SERVER
     EMAIL_PORT
+    DATA
     ```
 
 ## Test
@@ -50,12 +38,13 @@ python3 app.py
 
   Inspired by [tsosunchia](https://github.com/tsosunchia/bjut_autosignin)，I extract the user info module as a single file, which is easy for us to update own info.
 
-  A example of `info.json` is listed as below.
+  A example of `DATA` is listed as below.
 
   ```json
   {
       "id": "402880c97b5d8ad1017c39dcd10*****",
       "token": "CA6CD39AFDAC284ED68BB81BD54*****",
+      "JSESSIONID": "02F83B0ECCC5B8A051564CCC********-n1.jvm1",
       "c1": "在籍本科生",
       "c2": "在校内居住",
       "c3": "否",
@@ -77,3 +66,4 @@ python3 app.py
 
   ## Thanks
   ✨ [Woodykaixa](https://github.com/Woodykaixa)
+  ✨ [galaxyxxxxx](https://github.com/galaxyxxxxx)
