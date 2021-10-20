@@ -115,5 +115,7 @@ message['To'] = EMAIL_TO
 
 server = smtplib.SMTP(EMAIL_SERVER)
 server.connect(EMAIL_SERVER, EMAIL_PORT)
+server.elho()
+server.starttls()
 server.login(EMAIL_USERNAME, EMAIL_PASSWORD)
 server.sendmail(EMAIL_USERNAME, [EMAIL_USERNAME], message.as_string())
