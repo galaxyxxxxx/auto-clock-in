@@ -30,6 +30,8 @@ jobs:
         run: python3 app.py
         env:
           EMAIL_USERNAME: ${{secrets.EMAIL_USERNAME}}
+          EMAIL_TO: ${{secrets.EMAIL_TO}}
+          EMAIL_FROM: ${{secrets.EMAIL_FROM}}
           EMAIL_PASSWORD: ${{secrets.EMAIL_PASSWORD}}
           EMAIL_SERVER: ${{secrets.EMAIL_SERVER}}
           EMAIL_PORT: ${{secrets.EMAIL_PORT}}
