@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 '''
 @date: 2021-10-20
-@author: Leo, Li Jinxing, Chu Yumo
+@author: Littlebear0729, Leo, Li Jinxing, Chu Yumo
 '''
 import requests
 import json
@@ -43,7 +43,6 @@ HEADER = {
                   'Chrome/85.0.4183.83 Safari/537.36',
     'X-Requested-With': 'com.tencent.wework',
 }
-
 
 info = {
     'xmqkb': {
@@ -90,11 +89,11 @@ else:
 HTTP status: {response_clockin.status_code}
 打卡数据:
 {
-    json.dumps(info, ensure_ascii=False, sort_keys=True, indent=2)
-}
+        json.dumps(info, ensure_ascii=False, sort_keys=True, indent=2)
+        }
 {
-    DATA
-}
+        DATA
+        }
 {session}
 '''
 

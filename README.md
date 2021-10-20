@@ -38,7 +38,7 @@ python3 app.py
 
   Inspired by [tsosunchia](https://github.com/tsosunchia/bjut_autosignin)，I extract the user info module as a single file, which is easy for us to update own info.
 
-  A example of `DATA` is listed as below.
+  A example of `DATA` is listed as below. Also in DATA.json.template.
 
   ```json
   {
