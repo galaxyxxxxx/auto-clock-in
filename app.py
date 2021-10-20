@@ -1,8 +1,8 @@
 
 # -*- coding: utf-8 -*-
 '''
-@date: 2021-10-3
-@author: Li Jinxing, Chu Yumo
+@date: 2021-10-20
+@author: Leo, Li Jinxing, Chu Yumo
 '''
 import requests
 import json
@@ -17,12 +17,11 @@ EMAIL_FROM = environ['EMAIL_FROM']
 EMAIL_PASSWORD = environ['EMAIL_PASSWORD']
 EMAIL_SERVER = environ['EMAIL_SERVER']
 EMAIL_PORT = int(environ['EMAIL_PORT'])
+DATA = environ['DATA']
 
 URL_CLOCKIN = 'http://bjut.sanyth.com:81/syt/zzapply/operation.htm'
 
-# Part0 Read user info
-with open('./info.json', 'r') as f:
-    core = json.load(f)
+core = json.loads(DATA)
 
 s = requests.Session()
 s.cookies.set("id", core['id'])
@@ -42,10 +41,7 @@ HEADER = {
     'X-Requested-With': 'com.tencent.wework',
 }
 
-# info = core
-# info['xmqkb'] = {
-#         'id': '402880c97b1c114b017b1c2af13d02d8'
-#     }
+
 info = {
     'xmqkb': {
         'id': '402880c97b1c114b017b1c2af13d02d8'
