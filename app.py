@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 '''
 @date: 2021-10-3
@@ -8,6 +7,18 @@ import requests
 import json
 import urllib.parse
 from os import environ
+from email.mime.text import MIMEText
+import smtplib
+
+# Email notify
+EMAIL = environ['EMAIL']
+if EMAIL:
+    EMAIL_USERNAME = environ['EMAIL_USERNAME']
+    EMAIL_TO = environ['EMAIL_TO']
+    EMAIL_FROM = environ['EMAIL_FROM']
+    EMAIL_PASSWORD = environ['EMAIL_PASSWORD']
+    EMAIL_SERVER = environ['EMAIL_SERVER']
+    EMAIL_PORT = int(environ['EMAIL_PORT'])
 
 URL_CLOCKIN = 'http://bjut.sanyth.com:81/syt/zzapply/operation.htm'
 
@@ -29,7 +40,7 @@ HEADER = {
     'Origin': 'http://bjut.sanyth.com:81',
     'Referer': 'http://bjut.sanyth.com:81/webApp/xuegong/index.html',
     'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_4_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko)  Mobile/15E148 wxwork/3.1.18 MicroMessenger/7.0.1 Language/zh ColorScheme/Dark'
-    'Chrome/85.0.4183.83 Safari/537.36',
+                  'Chrome/85.0.4183.83 Safari/537.36',
     'X-Requested-With': 'com.tencent.wework',
 }
 
@@ -64,7 +75,7 @@ info = {
 suffix_raw = '&msgUrl=syt%2Fzzapply%2Flist.htm%3Ftype%3DYQSJSB%26xmid%3D402880c97b1c114b017b1c2af13d02d8&uploadFileStr=%7B%7D&multiSelectData=%7B%7D&type=YQSJSB'
 # prefix info (user info mostly)
 prefix_data = json.dumps(info, ensure_ascii=False)
-prefix_raw = 'data='+urllib.parse.quote_plus(prefix_data)
+prefix_raw = 'data=' + urllib.parse.quote_plus(prefix_data)
 DATA = prefix_raw + suffix_raw
 
 # Part3 Clock in
@@ -89,5 +100,18 @@ HTTP status: {response_clockin.status_code}
 }
 {session}
 '''
-        
-print(result)
+
+if EMAIL:
+    message = MIMEText(result, 'plain', 'utf-8')
+    message['Subject'] = '打卡结果'
+    message['FROM'] = EMAIL_FROM
+    message['To'] = EMAIL_TO
+
+    server = smtplib.SMTP(EMAIL_SERVER)
+    server.connect(EMAIL_SERVER, EMAIL_PORT)
+    server.ehlo()
+    server.starttls()
+    server.login(EMAIL_USERNAME, EMAIL_PASSWORD)
+    server.sendmail(EMAIL_USERNAME, [EMAIL_USERNAME], message.as_string())
+else:
+    print(result)
