@@ -7,16 +7,7 @@
 import requests
 import json
 import urllib.parse
-import smtplib
 from os import environ
-from email.mime.text import MIMEText
-
-EMAIL_USERNAME = environ['EMAIL_USERNAME']
-EMAIL_TO = environ['EMAIL_TO']
-EMAIL_FROM = environ['EMAIL_FROM']
-EMAIL_PASSWORD = environ['EMAIL_PASSWORD']
-EMAIL_SERVER = environ['EMAIL_SERVER']
-EMAIL_PORT = int(environ['EMAIL_PORT'])
 
 URL_CLOCKIN = 'http://bjut.sanyth.com:81/syt/zzapply/operation.htm'
 
@@ -98,15 +89,3 @@ HTTP status: {response_clockin.status_code}
 }
 {session}
 '''
-
-message = MIMEText(result, 'plain', 'utf-8')
-message['Subject'] = '打卡结果'
-message['FROM'] = EMAIL_FROM
-message['To'] = EMAIL_TO
-
-server = smtplib.SMTP(EMAIL_SERVER)
-server.connect(EMAIL_SERVER, EMAIL_PORT)
-server.ehlo()
-server.starttls()
-server.login(EMAIL_USERNAME, EMAIL_PASSWORD)
-server.sendmail(EMAIL_USERNAME, [EMAIL_USERNAME], message.as_string())
