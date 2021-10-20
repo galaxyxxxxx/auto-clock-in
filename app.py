@@ -89,3 +89,5 @@ HTTP status: {response_clockin.status_code}
 }
 {session}
 '''
+        
+print(result)
