@@ -55,32 +55,36 @@ HEADER = {
     'Referer': 'http://bjut.sanyth.com:81/webApp/xuegong/index.html',
     'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_4_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko)  Mobile/15E148 wxwork/3.1.18 MicroMessenger/7.0.1 Language/zh ColorScheme/Dark'
     'Chrome/85.0.4183.83 Safari/537.36',
-    'X-Requested-With': 'XMLHttpRequest',
+    'X-Requested-With': 'com.tencent.wework',
 }
 
 # user info
-info = {
-    'xmqkb': {
+info = core
+info['xmqkb'] = {
         'id': '402880c97b1c114b017b1c2af13d02d8'
-    },
-    'c1': core['c1'],
-    'c2': core['c2'],
-    'c3': core['c3'],
-    'c4': core['c4'],
-    'c5': core['c5'],
-    'c6': core['c6'],
-    'c7': core['c7'],
-    'c8': core['c8'],
-    'c12': core['c12'],
-    'c9': core['c9'],
-    'c10': core['c10'],
-    'c11': core['c11'],
-    'c14': core['c14'],
-    'type': 'YQSJSB',
-    'location_longitude': core['location_longitude'],
-    'location_latitude': core['location_latitude'],
-    'location_address': core['location_address']
-}
+    }
+# info = {
+#     'xmqkb': {
+#         'id': '402880c97b1c114b017b1c2af13d02d8'
+#     },
+#     'c1': core['c1'],
+#     'c2': core['c2'],
+#     'c3': core['c3'],
+#     'c4': core['c4'],
+#     'c5': core['c5'],
+#     'c6': core['c6'],
+#     'c7': core['c7'],
+#     'c8': core['c8'],
+#     'c12': core['c12'],
+#     'c9': core['c9'],
+#     'c10': core['c10'],
+#     'c11': core['c11'],
+#     'c14': core['c14'],
+#     'type': 'YQSJSB',
+#     'location_longitude': core['location_longitude'],
+#     'location_latitude': core['location_latitude'],
+#     'location_address': core['location_address']
+# }
 
 # suffix info (static)
 suffix_raw = '&msgUrl=syt%2Fzzapply%2Flist.htm%3Ftype%3DYQSJSB%26xmid%3D402880c97b1c114b017b1c2af13d02d8&uploadFileStr=%7B%7D&multiSelectData=%7B%7D&type=YQSJSB'
@@ -106,6 +110,10 @@ HTTP status: {response_clockin.status_code}
 {
     json.dumps(info, ensure_ascii=False, sort_keys=True, indent=2)
 }
+{
+    DATA
+}
+{session}
 '''
 
 message = MIMEText(result, 'plain', 'utf-8')
