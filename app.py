@@ -27,7 +27,7 @@ with open('./info.json', 'r') as f:
 s = requests.Session()
 s.cookie.set("id", core['id'])
 s.cookie.set("token", core['token'])
-s.cookie.set("JSESSIONID", core['JSESSIONID']
+s.cookie.set("JSESSIONID", core['JSESSIONID'])
 HEADER = {
     'Accept': 'application/json, text/plain, */*',
     'Accept-Encoding': 'gzip, deflate',
