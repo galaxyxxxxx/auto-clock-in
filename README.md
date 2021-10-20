@@ -18,9 +18,11 @@ It could clock in at 7, 8, 9:00 a.m everyday.
 2. Settings Open the settings in your forking repository, add the following info to your secrets.
 
     ```
+    EMAIL
     DATA
     ```
-   
+   If no email notify is requried, set `EMAIL` to `False`.   
+
    If you would like to turn on email notify, set `EMAIL` environment variable to `True` and set following variables.
 
     ```

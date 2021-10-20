@@ -12,7 +12,7 @@ from email.mime.text import MIMEText
 
 # Email notify
 EMAIL = environ['EMAIL']
-if EMAIL:
+if EMAIL == 'True':
     EMAIL_USERNAME = environ['EMAIL_USERNAME']
     EMAIL_TO = environ['EMAIL_TO']
     EMAIL_FROM = environ['EMAIL_FROM']
@@ -94,10 +94,9 @@ HTTP status: {response_clockin.status_code}
 {
         DATA
         }
-{session}
 '''
 
-if EMAIL:
+if EMAIL == 'True':
     message = MIMEText(result, 'plain', 'utf-8')
     message['Subject'] = '打卡结果'
     message['FROM'] = EMAIL_FROM
