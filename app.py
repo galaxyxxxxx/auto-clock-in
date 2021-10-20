@@ -12,6 +12,8 @@ from os import environ
 from email.mime.text import MIMEText
 
 EMAIL_USERNAME = environ['EMAIL_USERNAME']
+EMAIL_TO = environ['EMAIL_TO']
+EMAIL_FROM = environ['EMAIL_FROM']
 EMAIL_PASSWORD = environ['EMAIL_PASSWORD']
 EMAIL_SERVER = environ['EMAIL_SERVER']
 EMAIL_PORT = int(environ['EMAIL_PORT'])
@@ -107,9 +109,9 @@ HTTP status: {response_clockin.status_code}
 '''
 
 message = MIMEText(result, 'plain', 'utf-8')
-message['Subject'] = 'YQT打卡结果'
-message['FROM'] = EMAIL_USERNAME
-message['To'] = EMAIL_USERNAME
+message['Subject'] = '打卡结果'
+message['FROM'] = EMAIL_FROM
+message['To'] = EMAIL_TO
 
 server = smtplib.SMTP(EMAIL_SERVER)
 server.connect(EMAIL_SERVER, EMAIL_PORT)
