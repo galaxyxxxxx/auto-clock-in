@@ -7,7 +7,7 @@ on:
     branches: [main]
   schedule:
     # set the trigger time at 5:00 a.m
-    - cron: "0 1 * * *" 
+    - cron: "0 7,8,9 * * *" 
 
 jobs:
   bot:
